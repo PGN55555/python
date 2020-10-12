@@ -1,13 +1,12 @@
-earn = float(input('Выручка фирмы: '))
-cost = float(input('Издержки фирмы: '))
+my_list = [9, 8, 6, 4, 4, 3]
+num = int(input('Новый элемент рейтинга: '))
+#i = 0
 
-if earn > cost:
-    print('Компания работает с прибылью')
-    print(f'Рентабельность выручки равна {earn/cost:.2f}')
-elif earn < cost:
-    print('Компания работает в убыток')
-else:
-    print('Выручка и издержки равны')
+#if num in my_list:
+my_list.insert(my_list.index(num) + my_list.count(num), num)
+#else:
+#    while num < my_list[i]:
+#        i += 1
+#    my_list.insert(i, num)
 
-workers = int(input('Численность сотрудников фирмы: '))
-print(f'Прибыль фирмы на одного сотрудника равна {earn/workers:.2f}')
+print('Новый рейтинг:', *my_list)

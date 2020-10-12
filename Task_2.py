@@ -1,6 +1,10 @@
-s = int(input('Введите количество секунд: '))
-h = s // 3600
-s -= h * 3600
-m = s // 60
-s -= m * 60
-print('%02d:%02d:%02d' % (h, m, s))
+n = int(input('Введите количество элементов: '))
+spisok = []
+
+for i in range(n):
+    spisok.append(input('Введите элемент массива: '))
+
+for i in range(1, n, 2):
+    spisok[i - 1], spisok[i] = spisok[i], spisok[i - 1]
+
+print('Новый список:', *spisok)
