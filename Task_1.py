@@ -1,3 +1,11 @@
-spisok = [123, 234.456, 'afehgfbred', True, False, None, complex(4, 6)]
-for i in spisok:
-    print(f'Элемент массива {i} имеет тип {type(i)}')
+def division(a, b):
+    if b != 0:
+        ans = a / b
+        return int(ans) if ans == int(ans) else ans
+    else:
+        return "на ноль делить нельзя"
+
+
+a = float(input('Введите делимое: '))
+b = float(input('Введите делитель: '))
+print('Результат:', division(a, b))

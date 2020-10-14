@@ -1,12 +1,16 @@
-my_list = [9, 8, 6, 4, 4, 3]
-num = int(input('Новый элемент рейтинга: '))
-#i = 0
+def summ(mas):
+    ans = 0
+    for i in mas:
+        if i != 'q':
+            ans += float(i)
+    return ans
 
-#if num in my_list:
-my_list.insert(my_list.index(num) + my_list.count(num), num)
-#else:
-#    while num < my_list[i]:
-#        i += 1
-#    my_list.insert(i, num)
 
-print('Новый рейтинг:', *my_list)
+print('Для выхода введите q')
+
+mas = []
+all_sum = 0
+while not 'q' in mas:
+    mas = input('Введите числа: ').split()
+    all_sum += summ(mas)
+    print('Сумма чисел равна', all_sum)

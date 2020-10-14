@@ -1,10 +1,11 @@
-n = int(input('Введите количество элементов: '))
-spisok = []
+def info(name, surname, year, city, email, tel):
+    print(f'Имя и фамилия: {name} {surname}, год рождения: {year}, город проживания: {city}, email: {email}, телефон: {tel}')
 
-for i in range(n):
-    spisok.append(input('Введите элемент массива: '))
 
-for i in range(1, n, 2):
-    spisok[i - 1], spisok[i] = spisok[i], spisok[i - 1]
-
-print('Новый список:', *spisok)
+name = input('Введите имя: ')
+surname = input('Введите фамилию: ')
+year = input('Введите год рождения: ')
+city = input('Введите город проживания: ')
+email = input('Введите email: ')
+tel = input('Введите телефон: ')
+info(name = name, surname = surname, year = year, city = city, tel = tel, email = email)
