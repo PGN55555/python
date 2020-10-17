@@ -1,13 +1,5 @@
-def my_func(x, y):
-    #return x ** y
-    x = 1 / x
-    ans = x
-    for i in range(abs(y) - 1):
-        ans *= x
-    return ans
-
-
-x = float(input('Введите действительное положительное число x: '))
-y = int(input('Введите целое отрицательное число y: '))
-
-print(f'x в степени y равно {my_func(x, y)}')
+from random import randint
+old_list = [randint(1, 30) for i in range(15)]
+new_list = [num for num in old_list if old_list.count(num) == 1]
+print('Изначальный список:', *old_list)
+print('Преобразованный список:', *new_list)

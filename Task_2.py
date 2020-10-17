@@ -1,11 +1,5 @@
-def info(name, surname, year, city, email, tel):
-    print(f'Имя и фамилия: {name} {surname}, год рождения: {year}, город проживания: {city}, email: {email}, телефон: {tel}')
-
-
-name = input('Введите имя: ')
-surname = input('Введите фамилию: ')
-year = input('Введите год рождения: ')
-city = input('Введите город проживания: ')
-email = input('Введите email: ')
-tel = input('Введите телефон: ')
-info(name = name, surname = surname, year = year, city = city, tel = tel, email = email)
+from random import randint
+old_list = [randint(1, 500) for i in range(15)]
+new_list = [old_list[i] for i in range(1, len(old_list)) if old_list[i] > old_list[i - 1]]
+print('Изначальный список:', *old_list)
+print('Преобразованный список:', *new_list)

@@ -1,14 +1,15 @@
-def int_func(stroka):
-    mas = list(stroka)
-    mas[0] = mas[0].upper()
-    return ''.join(mas)
+from itertools import count, cycle
 
+my_list = ['A', '1', 'B', '2', 'C', '3']
+for i in count(3):
+    if i > 20:
+        print()
+        break
+    print(i, end=' ')
 
-stroka = input('Введите строку: ')
-mas = stroka.split()
-ans = ''
-
-for i in mas:
-    ans += int_func(i) + ' '
-
-print('Результат:', ans)
+i = 0
+for el in cycle(my_list):
+    print(el)
+    if i > 17:
+        break
+    i += 1

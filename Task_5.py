@@ -1,16 +1,7 @@
-def summ(mas):
-    ans = 0
-    for i in mas:
-        if i != 'q':
-            ans += float(i)
-    return ans
+from functools import reduce
 
+def pr(a, b):
+    return a * b
 
-print('Для выхода введите q')
-
-mas = []
-all_sum = 0
-while not 'q' in mas:
-    mas = input('Введите числа: ').split()
-    all_sum += summ(mas)
-    print('Сумма чисел равна', all_sum)
+my_list = [num for num in range(100, 1001, 2)]
+print('Произведение всех элементов списка:', reduce(pr, my_list))
