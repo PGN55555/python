@@ -1,7 +1,13 @@
-from functools import reduce
+a = open("text.txt", "w", encoding="utf-8")
+a.write('12 3425 36 24 34.07 56601')
+a.close()
+a = open(r"text.txt", "r", encoding="utf-8")
+content = a.readline()
+mas = map(float, content.split())
+s = 0
 
-def pr(a, b):
-    return a * b
+for i in mas:
+    s += i
 
-my_list = [num for num in range(100, 1001, 2)]
-print('Произведение всех элементов списка:', reduce(pr, my_list))
+print('Сумма чисел равна', s)
+a.close()

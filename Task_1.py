@@ -1,4 +1,8 @@
-from sys import argv
-# вводить в порядке: выработка в часах, ставка в час, премия
-name, hour, rate_per_hour, bonus = argv
-print('Зарплата равна', float(hour) * float(rate_per_hour) + float(bonus))
+a = open("text.txt", "w", encoding="utf-8")
+
+ans = ' '
+while ans != '':
+    ans = input('Введите данные: ')
+    a.write(ans + '\n')
+
+a.close()
