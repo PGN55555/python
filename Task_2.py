@@ -1,6 +1,12 @@
-a = open(r"text.txt", "r", encoding="utf-8")
+class Road:
+    mass = 25
+    thickness = 5
+    def __init__(self, length, width):
+        self._length = length
+        self._width = width
 
-for i, line in enumerate(a, 1):
-    print(f"В {i} строке {len(line.split())} слов")
+    def calc(self):
+        return str(self._length * self._width * self.mass * self.thickness / 1000) + ' т'
 
-a.close()
+a = Road(float(input('Введите длину в метрах: ')), float(input('Введите ширину в метрах: ')))
+print('Масса равна', a.calc())

@@ -1,13 +1,27 @@
-a = open("text.txt", "w", encoding="utf-8")
-a.write('12 3425 36 24 34.07 56601')
-a.close()
-a = open(r"text.txt", "r", encoding="utf-8")
-content = a.readline()
-mas = map(float, content.split())
-s = 0
+class Stationery:
+    def __init__(self, title):
+        self.title = title
 
-for i in mas:
-    s += i
+    def draw(self):
+        print(f'Запуск отрисовки {self.title}.')
 
-print('Сумма чисел равна', s)
-a.close()
+
+class Pen(Stationery):
+    def draw():
+        print('Запуск отрисовки ручкой.')
+
+
+class Pencil(Stationery):
+    def draw():
+        print('Запуск отрисовки карандашом.')
+
+
+class Handle(Stationery):
+    def draw():
+        print('Запуск отрисовки маркером.')
+
+
+Stationery(input('Чем рисовать? ')).draw()
+Pen.draw()
+Pencil.draw()
+Handle.draw()
