@@ -1,19 +1,36 @@
-class Worker:
-    def __init__(self, name, surname, position, wage, bonus):
-        self.name = name
-        self.surname = surname
-        self.position = position
-        self._income = {'wage': wage, 'bonus': bonus}
+class Cell:
+    def __init__(self, count):
+        self.count = count
 
+    def __add__(self, other):
+        return self.count + other.count
 
-class Position(Worker):
-    def get_full_name(self):
-        return f'{self.name} {self.surname}'
+    def __sub__(self, other):
+        ans = self.count - other.count
+        if ans > 0:
+            return ans
+        else:
+            return 'Результат вычитания отрицательный'
 
-    def get_total_income(self):
-        return sum(self._income.values())
+    def __mul__(self, other):
+        return self.count * other.count
 
+    def __truediv__(self, other):
+        return self.count // other.count
 
-a = Position(input('Введите имя сотрудника: '), input('Введите фамилию сотрудника: '), input('Введите должность сотрудника: '), float(input('Введите зарплату сотрудника: ')), float(input('Введите премию сотрудника: ')))
-print('Полное имя сотрудника:', a.get_full_name())
-print('Доход сотрудника:', a.get_total_income())
+    def make_order(self, num):
+        stroka = ''
+        for i in range(1, self.count + 1):
+            stroka += '*'
+            if i % num == 0:
+                stroka += '\n'
+        return stroka
+
+cell_1 = Cell(int(input('Введите количество ячеек первой клетки: ')))
+cell_2 = Cell(int(input('Введите количество ячеек второй клетки: ')))
+print(cell_1 + cell_2)
+print(cell_1 - cell_2)
+print(cell_1 * cell_2)
+print(cell_1 / cell_2)
+print(cell_1.make_order(4))
+print(cell_2.make_order(3))

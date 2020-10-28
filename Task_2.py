@@ -1,12 +1,31 @@
-class Road:
-    mass = 25
-    thickness = 5
-    def __init__(self, length, width):
-        self._length = length
-        self._width = width
+from abc import ABC, abstractmethod
 
+class Clothes(ABC):
+    @abstractmethod
+    def __init__(self):
+        pass
+
+    @abstractmethod
     def calc(self):
-        return str(self._length * self._width * self.mass * self.thickness / 1000) + ' т'
+        pass
 
-a = Road(float(input('Введите длину в метрах: ')), float(input('Введите ширину в метрах: ')))
-print('Масса равна', a.calc())
+class Coat(Clothes):
+    def __init__(self, v):
+        self.v = v
+
+    @property
+    def calc(self):
+        return self.v / 6.5 + 0.5
+
+class Suit(Clothes):
+    def __init__(self, h):
+        self.h = h
+
+    @property
+    def calc(self):
+        return self.h * 2 + 0.3
+
+
+my_coat = Coat(float(input('Введите размер пальто: ')))
+my_suit = Suit(float(input('Введите рост для костюма: ')))
+print('Общие расходы равны:', my_coat.calc + my_suit.calc)
