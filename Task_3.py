@@ -1,36 +1,24 @@
-class Cell:
-    def __init__(self, count):
-        self.count = count
+class Error(Exception):
+    def __init__(self, text):
+        self.text = text
 
-    def __add__(self, other):
-        return self.count + other.count
 
-    def __sub__(self, other):
-        ans = self.count - other.count
-        if ans > 0:
-            return ans
+mas = []
+num = ''
+print('Для выхода введите q')
+
+while num != 'q':
+    num = input('Введите число: ').replace(' ', '')
+    if num != 'q':
+        try:
+            if not num.replace('.', '', 1).isdigit():
+                raise Error('Вы ввели не число')
+        except Error as err:
+            print(err)
         else:
-            return 'Результат вычитания отрицательный'
+            if num.replace('.', '', 1) == num:
+                mas.append(int(num))
+            else:
+                mas.append(float(num))
 
-    def __mul__(self, other):
-        return self.count * other.count
-
-    def __truediv__(self, other):
-        return self.count // other.count
-
-    def make_order(self, num):
-        stroka = ''
-        for i in range(1, self.count + 1):
-            stroka += '*'
-            if i % num == 0:
-                stroka += '\n'
-        return stroka
-
-cell_1 = Cell(int(input('Введите количество ячеек первой клетки: ')))
-cell_2 = Cell(int(input('Введите количество ячеек второй клетки: ')))
-print(cell_1 + cell_2)
-print(cell_1 - cell_2)
-print(cell_1 * cell_2)
-print(cell_1 / cell_2)
-print(cell_1.make_order(4))
-print(cell_2.make_order(3))
+print('Готовый список:', mas)

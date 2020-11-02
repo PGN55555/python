@@ -1,31 +1,15 @@
-from abc import ABC, abstractmethod
-
-class Clothes(ABC):
-    @abstractmethod
-    def __init__(self):
-        pass
-
-    @abstractmethod
-    def calc(self):
-        pass
-
-class Coat(Clothes):
-    def __init__(self, v):
-        self.v = v
-
-    @property
-    def calc(self):
-        return self.v / 6.5 + 0.5
-
-class Suit(Clothes):
-    def __init__(self, h):
-        self.h = h
-
-    @property
-    def calc(self):
-        return self.h * 2 + 0.3
+class Error(Exception):
+    def __init__(self, text):
+        self.text = text
 
 
-my_coat = Coat(float(input('Введите размер пальто: ')))
-my_suit = Suit(float(input('Введите рост для костюма: ')))
-print('Общие расходы равны:', my_coat.calc + my_suit.calc)
+delimoe = float(input('Введите делимое: '))
+delitel = float(input('Введите делитель: '))
+
+try:
+    if delitel == 0:
+        raise Error('Попытка деления на ноль!')
+except Error as err:
+    print(err)
+else:
+    print(delimoe / delitel)

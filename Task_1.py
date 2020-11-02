@@ -1,24 +1,21 @@
-class Matrix:
-    def __init__(self, matrix):
-        self.matrix = matrix
+class Date:
+    def __init__(self, stroka):
+        self.stroka = stroka
 
-    def __str__(self):
-        mas = ''
-        for line in self.matrix:
-            for symbol in line:
-                mas += f'{symbol} '
-            mas += '\n'
-        return mas
+    @classmethod
+    def normal(cls, data):
+        return cls(list(map(int, data.split('-'))))
 
-    def __add__(self, other):
-        summ = []
-        for i, el_i in enumerate(self.matrix):
-            summ.append([self.matrix[i][j] + other.matrix[i][j] for j in range(len(el_i))])
-        return summ
+    @staticmethod
+    def validate(mas):
+        ans = ''
+        print(mas)
+        if mas[0] < 1 or mas[0] > 31:
+            ans += 'Неверное число\n'
+        if mas[1] < 1 or mas[1] > 12:
+            ans += 'Неверный месяц\n'
+        return ans if ans != '' else 'Всё верно'
 
+clss = Date.normal('32-13-2019')
 
-matrix_1 = Matrix([[1, 2], [3, 4], [5, 6]])
-matrix_2 = Matrix([[7, 8], [9, 10], [11, 12]])
-print(matrix_1)
-print(matrix_2)
-print(matrix_1 + matrix_2)
+print(Date.validate(clss.stroka))
